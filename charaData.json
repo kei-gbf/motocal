@@ -578,9 +578,9 @@
         "support": "none",
         "support2": "none",
         "support3": "none",
-        "minhp": "200",
+        "minhp": "219",
         "hp": "1319",
-        "minattack": "1500",
+        "minattack": "1605",
         "attack": "9705",
         "baseDA": 7.0,
         "baseTA": 3.0,
@@ -645,8 +645,8 @@
         "hp": "1620",
         "minattack": "1375",
         "attack": "7440",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040210000_01.png",
         "en": "Yuel (Themed)"
     },
@@ -687,8 +687,8 @@
         "hp": "1170",
         "minattack": "1600",
         "attack": "8600",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040208000_01.png",
         "en": "Heles (Wind)"
     },
@@ -708,8 +708,8 @@
         "hp": "1400",
         "minattack": "1420",
         "attack": "9210",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040207000_01.png",
         "en": "Melissabelle (Valentine)"
     },
@@ -771,8 +771,8 @@
         "hp": "1250",
         "minattack": "1950",
         "attack": "9750",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040205000_01.png",
         "en": "Dante and Freiheit"
     },
@@ -834,8 +834,8 @@
         "hp": "1200",
         "minattack": "1600",
         "attack": "8600",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 13.0,
+        "baseTA": 5.5,
         "imageURL": "./charaimgs/3040198000_01.png",
         "en": "Eustace (Dark)"
     },
@@ -1065,8 +1065,8 @@
         "hp": "2000",
         "minattack": "1290",
         "attack": "6800",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3040190000_01.png",
         "en": "Europa"
     },
@@ -1214,7 +1214,7 @@
         "attack": "10500",
         "baseDA": 10.0,
         "baseTA": 5.0,
-        "imageURL": "./charaimgs/3040183000_03.png",
+        "imageURL": "./charaimgs/3040183000_01.png",
         "en": "Aqours Second-Years"
     },
     "フーちゃん": {
@@ -1634,7 +1634,7 @@
         "attack": "9150",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040153000_03.png",
+        "imageURL": "./charaimgs/3040153000_01.png",
         "en": "Sandalphon"
     },
     "ティアマト": {
@@ -1947,8 +1947,8 @@
         "hp": "1380",
         "minattack": "1890",
         "attack": "9990",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040137000_01.png",
         "en": "Azazel"
     },
@@ -2241,8 +2241,8 @@
         "hp": "2300",
         "minattack": "1430",
         "attack": "7420",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3040124000_01.png",
         "en": "Baotorda (SSR)"
     },
@@ -2264,7 +2264,7 @@
         "attack": "8500",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040122000_03.png",
+        "imageURL": "./charaimgs/3040122000_01.png",
         "en": "Scathacha"
     },
     "クラリス(光属性ver)": {
@@ -2304,8 +2304,8 @@
         "hp": "1805",
         "minattack": "1200",
         "attack": "6370",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3040120000_01.png",
         "en": "Cagliostro (Dark)"
     },
@@ -2451,8 +2451,8 @@
         "hp": "1020",
         "minattack": "1850",
         "attack": "10400",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040112000_01.png",
         "en": "Zeta (Dark)"
     },
@@ -2871,8 +2871,8 @@
         "hp": "1150",
         "minattack": "1620",
         "attack": "8640",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040091000_01.png",
         "en": "Heles (Summer)"
     },
@@ -2955,8 +2955,8 @@
         "hp": "1600",
         "minattack": "1500",
         "attack": "8000",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040087000_01.png",
         "en": "Rosamia"
     },
@@ -2976,8 +2976,8 @@
         "hp": "1340",
         "minattack": "1910",
         "attack": "10130",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040086000_01.png",
         "en": "Forte"
     },
@@ -3060,8 +3060,8 @@
         "hp": "1500",
         "minattack": "1850",
         "attack": "10000",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040082000_01.png",
         "en": "Black Knight (Grand)"
     },
@@ -3102,8 +3102,8 @@
         "hp": "1200",
         "minattack": "1840",
         "attack": "9800",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040080000_01.png",
         "en": "Jeanne d'Arc (Dark)"
     },
@@ -3293,7 +3293,7 @@
         "attack": "8940",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040071000_03.png",
+        "imageURL": "./charaimgs/3040071000_01.png",
         "en": "Andira"
     },
     "ベアトリクス": {
@@ -3417,8 +3417,8 @@
         "hp": "1770",
         "minattack": "1440",
         "attack": "7700",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3040065000_01.png",
         "en": "Io (Grand)"
     },
@@ -3461,7 +3461,7 @@
         "attack": "12200",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040063000_03.png",
+        "imageURL": "./charaimgs/3040063000_01.png",
         "en": "Narmaya"
     },
     "カリオストロ(ハロウィンver)": {
@@ -3582,9 +3582,9 @@
         "support2": "none",
         "support3": "none",
         "minhp": "220",
-        "hp": "1170",
+        "hp": "1390",
         "minattack": "1720",
-        "attack": "9160",
+        "attack": "10880",
         "baseDA": 7.0,
         "baseTA": 3.0,
         "imageURL": "./charaimgs/3040057000_01.png",
@@ -3606,8 +3606,8 @@
         "hp": "1280",
         "minattack": "1800",
         "attack": "9600",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040056000_91.png",
         "en": "Zeta (Summer)"
     },
@@ -3692,7 +3692,7 @@
         "attack": "11970",
         "baseDA": 10.0,
         "baseTA": 5.0,
-        "imageURL": "./charaimgs/3040052000_03.png",
+        "imageURL": "./charaimgs/3040052000_01.png",
         "en": "Ghandagoza"
     },
     "アーミラ(SSR)": {
@@ -3711,8 +3711,8 @@
         "hp": "1740",
         "minattack": "1620",
         "attack": "10270",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040051000_03.png",
         "en": "Amira"
     },
@@ -3755,7 +3755,7 @@
         "attack": "10990",
         "baseDA": 10.0,
         "baseTA": 5.0,
-        "imageURL": "./charaimgs/3040049000_03.png",
+        "imageURL": "./charaimgs/3040049000_01.png",
         "en": "Silva"
     },
     "サルナーン(闇属性ver)": {
@@ -3839,7 +3839,7 @@
         "attack": "6080",
         "baseDA": 1000.0,
         "baseTA": 0.0,
-        "imageURL": "./charaimgs/3040045000_03.png",
+        "imageURL": "./charaimgs/3040045000_01.png",
         "en": "Albert"
     },
     "ソシエ": {
@@ -3879,8 +3879,8 @@
         "hp": "1520",
         "minattack": "1680",
         "attack": "10640",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040043000_03.png",
         "en": "Vira"
     },
@@ -3942,8 +3942,8 @@
         "hp": "1840",
         "minattack": "1560",
         "attack": "9850",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040040000_03.png",
         "en": "Jeanne d'Arc"
     },
@@ -3963,9 +3963,9 @@
         "hp": "1680",
         "minattack": "1980",
         "attack": "12540",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040029000_03.png",
+        "baseDA": 4.0,
+        "baseTA": 1.0,
+        "imageURL": "./charaimgs/3040029000_01.png",
         "en": "Vaseraga"
     },
     "ゼタ": {
@@ -4068,8 +4068,8 @@
         "hp": "1830",
         "minattack": "1160",
         "attack": "6160",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3040024000_01.png",
         "en": "Sophia"
     },
@@ -4133,7 +4133,7 @@
         "attack": "7790",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040021000_03.png",
+        "imageURL": "./charaimgs/3040021000_01.png",
         "en": "Lennah"
     },
     "シャルロッテ(ハロウィンver)": {
@@ -4175,7 +4175,7 @@
         "attack": "9980",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040019000_03.png",
+        "imageURL": "./charaimgs/3040019000_01.png",
         "en": "Arulumaya"
     },
     "クリスティーナ": {
@@ -4236,7 +4236,7 @@
         "hp": "1333",
         "minattack": "1333",
         "attack": "7333",
-        "baseDA": 10.0,
+        "baseDA": 0.0,
         "baseTA": 55.0,
         "imageURL": "./charaimgs/3040016000_01.png",
         "en": "Cerberus"
@@ -4299,8 +4299,8 @@
         "hp": "1365",
         "minattack": "1620",
         "attack": "10260",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040013000_03.png",
         "en": "Seruel"
     },
@@ -4322,7 +4322,7 @@
         "attack": "8670",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040012000_03.png",
+        "imageURL": "./charaimgs/3040012000_01.png",
         "en": "Metera"
     },
     "マギサ": {
@@ -4406,7 +4406,7 @@
         "attack": "8360",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040008000_03.png",
+        "imageURL": "./charaimgs/3040008000_01.png",
         "en": "Sarunan"
     },
     "リリィ": {
@@ -4467,8 +4467,8 @@
         "hp": "1520",
         "minattack": "1680",
         "attack": "10680",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 10.0,
+        "baseTA": 5.0,
         "imageURL": "./charaimgs/3040005000_03.png",
         "en": "Lady Grey"
     },
@@ -4553,7 +4553,7 @@
         "attack": "9500",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3040001000_03.png",
+        "imageURL": "./charaimgs/3040001000_01.png",
         "en": "Altair"
     },
     "ガウェイン": {
@@ -4742,7 +4742,7 @@
         "attack": "7970",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030007000_03.png",
+        "imageURL": "./charaimgs/3030007000_01.png",
         "en": "Eugen"
     },
     "ラカム": {
@@ -4763,7 +4763,7 @@
         "attack": "7250",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030008000_03.png",
+        "imageURL": "./charaimgs/3030008000_01.png",
         "en": "Rackam"
     },
     "ガイーヌ": {
@@ -4950,8 +4950,8 @@
         "hp": "1490",
         "minattack": "1310",
         "attack": "7840",
-        "baseDA": 7.0,
-        "baseTA": 3.0,
+        "baseDA": 4.0,
+        "baseTA": 1.0,
         "imageURL": "./charaimgs/3030017000_03.png",
         "en": "Danua"
     },
@@ -5666,7 +5666,7 @@
         "attack": "6600",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030051000_03.png",
+        "imageURL": "./charaimgs/3030051000_01.png",
         "en": "Mika Jougasaki"
     },
     "本田未央": {
@@ -5729,7 +5729,7 @@
         "attack": "7660",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030054000_03.png",
+        "imageURL": "./charaimgs/3030054000_01.png",
         "en": "Rita"
     },
     "ファスティバ": {
@@ -5876,7 +5876,7 @@
         "attack": "7500",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030061000_03.png",
+        "imageURL": "./charaimgs/3030061000_01.png",
         "en": "Ejaeli"
     },
     "テレーズ(バニーver)": {
@@ -5960,7 +5960,7 @@
         "attack": "8200",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030065000_03.png",
+        "imageURL": "./charaimgs/3030065000_01.png",
         "en": "Amira (SR)"
     },
     "ヘイゼン": {
@@ -6086,7 +6086,7 @@
         "attack": "6180",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030071000_03.png",
+        "imageURL": "./charaimgs/3030071000_01.png",
         "en": "Anzu Futaba"
     },
     "リーシャ": {
@@ -6443,7 +6443,7 @@
         "attack": "7200",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030088000_03.png",
+        "imageURL": "./charaimgs/3030088000_01.png",
         "en": "Rika Jougasaki"
     },
     "三村かな子": {
@@ -6527,7 +6527,7 @@
         "attack": "7900",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030092000_03.png",
+        "imageURL": "./charaimgs/3030092000_01.png",
         "en": "Will"
     },
     "ベス(攻撃)": {
@@ -6968,7 +6968,7 @@
         "attack": "6600",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030111000_03.png",
+        "imageURL": "./charaimgs/3030111000_01.png",
         "en": "Yaia"
     },
     "スカル": {
@@ -8207,7 +8207,7 @@
         "attack": "6600",
         "baseDA": 7.0,
         "baseTA": 3.0,
-        "imageURL": "./charaimgs/3030172000_03.png",
+        "imageURL": "./charaimgs/3030172000_01.png",
         "en": "Meteon"
     },
     "覇王丸": {
@@ -9902,9 +9902,9 @@
         "support": "none",
         "support2": "none",
         "support3": "none",
-        "minhp": "150",
+        "minhp": "165",
         "hp": "885",
-        "minattack": "1620",
+        "minattack": "1650",
         "attack": "7950",
         "baseDA": 7.0,
         "baseTA": 3.0,
