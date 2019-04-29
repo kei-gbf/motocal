@@ -2571,6 +2571,11 @@ var multiLangData = {
         "ja": "奥義上限UP(10%)",
         "zh": "奥义上限UP(10%)",
     },
+    "黄龍槍 奥義・奥義上限UP(20%)": {
+        "en": "Huanglong spear ougi/ougi limit up (20%)",
+        "ja": "黄龍槍 奥義・奥義上限UP(20%)",
+        "zh": "Huanglong spear ougi/ougi limit up (20%)",
+    },
     "奥義上限UP(イクシード)": {
         "en": "Ougi Limit UP (Exceed)",
         "ja": "奥義上限UP(イクシード)",

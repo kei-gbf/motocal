@@ -446,6 +446,7 @@ var skilltypes = {
     "normalDamageLimit7": {name: "通常上限UP(7.0%)", type: "normalDamageLimit", amount: "M"},
     "normalDamageLimit10": {name: "通常上限UP(10%)", type: "normalDamageLimit", amount: "L"},
     "ougiDamageLimit10": {name: "奥義上限UP(10%)", type: "ougiDamageLimit", amount: "L"}, //現在未使用
+    "huanglongHissatsu": {name: "黄龍槍 奥義・奥義上限UP(20%)", type: "huanglongHissatsu", amount: "non"},
     "ougiDamageLimitExceedM": {name: "奥義上限UP(イクシード)", type: "ougiDamageLimitExceed", amount: "M"},
     "chainForce": {name: "チェインフォース", type: "chainForce", amount: "M"},
     "normalHPS": {name: "通常守護(小)", type: "normalHP", amount: "S"},
