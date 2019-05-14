@@ -1,3 +1,7 @@
+/**
+ *
+ */
+
 var intl = require('./translate.js');
 var GlobalConst = require('./global_const.js');
 var elementRelation = GlobalConst.elementRelation;
@@ -27,18 +31,36 @@ var sexTypes = GlobalConst.sexTypes;
 var filterElementTypes = GlobalConst.filterElementTypes;
 var enemyDefenseType = GlobalConst.enemyDefenseType;
 
+/**
+ * isCosmos
+ * @param {object} arm weapon data
+ * @return {boolean} bool if any of skill was cosmosArm
+ */
 module.exports.isCosmos = function (arm) {
     return (skilltypes[arm.skill1] != undefined && skilltypes[arm.skill1].type == "cosmosArm") ||
         (skilltypes[arm.skill2] != undefined && skilltypes[arm.skill2].type == "cosmosArm") ||
         (skilltypes[arm.skill3] != undefined && skilltypes[arm.skill3].type == "cosmosArm");
 };
 
+/**
+ * isHaisuiType
+ * @param {string} stype
+ * @return {boolean} isHaisui
+ * @public
+ */
 function isHaisuiType(stype) {
     return (stype === "normalHaisui" || stype === "magnaHaisui" ||
         stype === "normalKonshin" || stype === "magnaKonshin" ||
         stype === "normalOtherKonshin" || stype === "exHaisui");
 }
 
+/**
+ * isValidResult
+ *
+ * @param {object} res res.Djeeta.totalHP
+ * @param {number} minHP
+ * @return {boolean} isValid
+ */
 module.exports.isValidResult = function (res, minHP) {
     // Function for preprocessing the result
 
@@ -46,6 +68,17 @@ module.exports.isValidResult = function (res, minHP) {
     return !(minHP != undefined && minHP > res.Djeeta.totalHP);
 };
 
+/**
+ * proceedIndex
+ * @param {array} index
+ * @param {array} ana armNumArray
+ * @param {number} i
+ * @return {number} index
+ *
+ * XXX: "index" sound like number, but array,
+ *      callee use var index = [];
+ * FIXME: if "i" was bigger than ana.length?
+ */
 module.exports.proceedIndex = function (index, ana, i) {
     if (i != ana.length) {
         index[i] = (index[i] + 1) | 0;
@@ -57,6 +90,11 @@ module.exports.proceedIndex = function (index, ana, i) {
     return index;
 };
 
+/**
+ * calcCombinations
+ * @param {array} arml armList
+ * @return {array} combinations
+ */
 module.exports.calcCombinations = function (arml) {
     // Calculate the array of [Minimum consideration number, ..., Maximum consideration number] for all weapons
     var armNumArray = [];
@@ -112,6 +150,15 @@ module.exports.calcCombinations = function (arml) {
     return combinations
 };
 
+/**
+ * getTypeBonus
+ * @param {string} self_elem "fire", ...
+ * @param {string} enemy_elem
+ * @return {number} bonus for element attack. one of {0.75, 1.0, 1.5}
+ *
+ * XXX: if unknown elem token was given?
+ * FIXME: the tail "," (source code)
+ */
 module.exports.getTypeBonus = function (self_elem, enemy_elem) {
     var t_enemy_elem = enemy_elem != undefined ? enemy_elem : "fire";
     var t_elem = self_elem != undefined ? self_elem : "fire";
@@ -125,6 +172,17 @@ module.exports.getTypeBonus = function (self_elem, enemy_elem) {
     return 1.0
 },
 
+/**
+ * getTypeBonusStr
+ * @param {string} self_elem "fire", ...
+ * @param {string} enemy_elem
+ * @return {number} bonus for element attack. one of {0.75, 1.0, 1.5}
+ * @return {string} bonusStr {"非有理", "有利", "不利"}
+ *
+ * TODO: can be enum alphabet instead of japanese token.
+ * TODO: parameters redundant, document is same with getTypeBonus()
+ * FIXME: unnecessary indent (source code)
+ */
     module.exports.getTypeBonusStr = function (self_elem, enemy_elem) {
         switch (module.exports.getTypeBonus(self_elem, enemy_elem)) {
             case 1.0:
@@ -138,6 +196,12 @@ module.exports.getTypeBonus = function (self_elem, enemy_elem) {
         }
     };
 
+/**
+ * makeSummonHeaderString
+ * @param {object} summon
+ * @param {string} locale
+ * @return {string} summonHeader
+ */
 module.exports.makeSummonHeaderString = function (summon, locale) {
     var summonHeader = "";
     if (summon.selfSummonType == "odin") {
@@ -155,6 +219,12 @@ module.exports.makeSummonHeaderString = function (summon, locale) {
     return summonHeader;
 };
 
+/**
+ * calcDefenseDebuff
+ * @param {number} defense enemy's defence default: 10 (trial)
+ * @param {number} debuff 50 is usually max, 0 for no debuff.
+ * @return {number} defence applied the debuf effect.
+ */
 module.exports.calcDefenseDebuff = function (defense, debuff) {
     defense = defense != undefined ? defense : 10.0;
     debuff = debuff != undefined ? debuff : 0;
@@ -162,6 +232,20 @@ module.exports.calcDefenseDebuff = function (defense, debuff) {
     return Math.max(1, defense * (1 - debuff * 0.01));
 };
 
+/**
+ * calcDamage
+ *
+ * @param {number} summedAttack
+ * @param {number} totalSkillCoeff
+ * @param {number} criticalRatio
+ * @param {number} enemyDefense
+ * @param {number} defenseDebuff
+ * @param {number} additionalDamage
+ * @param {number} damageUP
+ * @param {number} damageLimit
+ * @return {number} damage
+ * @public
+ */
 module.exports.calcDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, defenseDebuff, additionalDamage, damageUP, damageLimit) {
     // Damage calculation
     var def = module.exports.calcDefenseDebuff(enemyDefense, defenseDebuff);
@@ -196,6 +280,21 @@ module.exports.calcDamage = function (summedAttack, totalSkillCoeff, criticalRat
     return res
 };
 
+/**
+ * calcOugiDamage
+ *
+ * @param {number} summedAttack
+ * @param {number} totalSkillCoeff
+ * @param {number} criticalRatio
+ * @param {number} enemyDefense
+ * @param {number} defenseDebuff
+ * @param {number} ougiRatio
+ * @param {number} ougiDamageUP
+ * @param {number} damageUP
+ * @param {number} ougiDamageLimit
+ * @return {number} damage
+ * @public
+ */
 module.exports.calcOugiDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, defenseDebuff, ougiRatio, ougiDamageUP, damageUP, ougiDamageLimit) {
     // Damage calculation
     var def = module.exports.calcDefenseDebuff(enemyDefense, defenseDebuff);
@@ -227,6 +326,17 @@ module.exports.calcOugiDamage = function (summedAttack, totalSkillCoeff, critica
     return damage
 };
 
+/**
+ * calcChainBurst
+ *
+ * @param {number} ougiDamage
+ * @param {number} chainNumber
+ * @param {number} typeBonus
+ * @param {number} chainDamageUP
+ * @param {number} chainDamageLimitUP
+ * @return {number} damage
+ * @public
+ */
 module.exports.calcChainBurst = function (ougiDamage, chainNumber, typeBonus, chainDamageUP, chainDamageLimitUP) {
     if (chainNumber <= 1) return 0.0;
 
@@ -269,6 +379,16 @@ module.exports.calcChainBurst = function (ougiDamage, chainNumber, typeBonus, ch
     return damage;
 };
 
+/**
+ * calcCriticalArray
+ *
+ * @param {array} normalCritical
+ * @param {number} _magnaCritical
+ * @param {array} normalOtherCritical
+ * @param {object} summon 'zeus' and 'magna' aura
+ * @return {damage} damage
+ * @public
+ */
 module.exports.calcCriticalArray = function (normalCritical, _magnaCritical, normalOtherCritical, summon) {
     // Store each occurrence probability
     var probability = [];
@@ -343,6 +463,11 @@ module.exports.calcCriticalArray = function (normalCritical, _magnaCritical, nor
     return criticalRatioArray;
 };
 
+/**
+ * calcCriticalRatio
+ * @param {array} criticalRatioArray
+ * @return {number} ratio
+ */
 module.exports.calcCriticalRatio = function (criticalRatioArray) {
     var criticalRatio = 0.0;
 
@@ -357,6 +482,11 @@ module.exports.calcCriticalRatio = function (criticalRatioArray) {
     return criticalRatio
 };
 
+/**
+ * calcCriticalDeviation
+ * @param {array} criticalRatioArray
+ * @return {number} damage
+ */
 module.exports.calcCriticalDeviation = function (criticalRatioArray) {
     var expectedValue = module.exports.calcCriticalRatio(criticalRatioArray);
     var variance = 0.0;
@@ -368,6 +498,17 @@ module.exports.calcCriticalDeviation = function (criticalRatioArray) {
     return Math.sqrt(variance);
 };
 
+/**
+ * calcBasedOneSummon
+ *
+ * @param {number} summonind index of totalSummon
+ * @param {object} prof Profile object
+ * @param {object} buff
+ * @param {array} totals
+ * @return {object} res response? sum of LB, skill, buff.
+ *
+ * NOTE: summon aura is calculated here.
+ */
 module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
     var res = {};
 
@@ -407,7 +548,7 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         elementCoeff += totals[key]["opusnormalElement"] * totalSummon["zeus"];
         elementCoeff += totals[key]["opusmagnaElement"] * totalSummon["magna"];
         elementCoeff += 0.01 * totals[key]["LB"].Element;
-        
+
         if (key == "Djeeta") {
             elementCoeff += buff["zenithElement"];
         }
@@ -507,10 +648,10 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
             totalDA += buff["masterDA"];
             totalDA += buff["zenithDA"];
         }
-        
+
         totalDA = totalDA >= 0.0 ? totalDA : 0.0; // Fit 100% >= DA >= 0%
         totalDA = totalDA <= 1.0 ? totalDA : 1.0;
-       
+
 
         // skill that rises only TA is called LesserSante
         var normalLesserSante = totals[key]["normalLesserSante"] * totalSummon["zeus"];
@@ -530,10 +671,10 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
             totalTA += buff["masterTA"];
             totalTA += buff["zenithTA"];
         }
-        
+
         totalTA = totalTA >= 0.0 ? totalTA : 0.0; // Fit 100% >= TA >= 0%
         totalTA = totalTA <= 1.0 ? totalTA : 1.0;
-        
+
         var taRate = Math.min(1.0, Math.floor(totalTA * 100) / 100); // Truncated values are used to calculate multi attack.
         var daRate = Math.min(1.0, Math.floor(totalDA * 100) / 100);
         var expectedAttack = 3.0 * taRate + (1.0 - taRate) * (2.0 * daRate + (1.0 - daRate));
@@ -595,12 +736,12 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         ougiDamageLimit += Math.min(0.60, (ougiDamageLimitByMagna + ougiDamageLimitByNormal + ougiDamageLimitByExceed));
         ougiDamageLimit += buff["ougiDamageLimit"] + totals[key]["ougiDamageLimitBuff"];
         ougiDamageLimit += 0.01 * totalSummon["damageLimit"];
-        
-        
+
+
         // Chain Burst
         var chainDamageLimit = 0.01 * (totals[key]["chainDamageLimit"] + (totals[key]["normalChainDamageLimit"] * totalSummon["zeus"]));
         chainDamageLimit = chainDamageLimit <= 0.50 ? chainDamageLimit : 0.50;
-        
+
 
         // "damage" is a single attack damage without additional damage (with attenuation and skill correction)
         var damage = module.exports.calcDamage(summedAttack, totalSkillCoeff, criticalRatio, prof.enemyDefense, prof.defenseDebuff, additionalDamage, damageUP, damageLimit);
@@ -622,18 +763,18 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         var ougiDamageByNormal = Math.min(100, totals[key]["normalOugiDamage"] * totalSummon["zeus"]);
         var ougiDamageByMagna = Math.min(100, totals[key]["magnaOugiDamage"] * totalSummon["magna"]);
         var ougiDamageSkill = 0.01 * (ougiDamageByCosmosAT + ougiDamageByMagna + ougiDamageByNormal + ougiDamageByMystery);
-        
+
         var ougiDamageExceptSkill = totals[key]["ougiDamageBuff"] + totalSummon["ougiDamage"];
         if (key == "Djeeta") {
             ougiDamageExceptSkill += buff["zenithOugiDamage"];
         }
-        
+
         var ougiDamageUP = (1.0 + ougiDamageSkill) * (1.0 + ougiDamageExceptSkill) - 1.0;
 
 
         var chainDamageUP = 0.01 * (totals[key]["chainDamage"] + (totals[key]["normalChainDamage"] * totalSummon["zeus"]));
         chainDamageUP = chainDamageUP <= 1.20 ? chainDamageUP : 1.20; //check skill limit
-        
+
         if (key == "Djeeta") {
             damageLimit += buff["masterDamageLimit"] + buff["zenithDamageLimit"];
             ougiDamageLimit += buff["masterDamageLimit"] + buff["zenithDamageLimit"];
@@ -651,8 +792,8 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         // Ougi + chain burst (buff ["chainNumber"] is 1 or more so division OK)
         expectedCycleDamage += ougiDamage + chainBurst / buff["chainNumber"];
         var expectedCycleDamagePerTurn = expectedCycleDamage / (expectedTurn + 1.0);
-        
-        
+
+
         // Display array
         var coeffs = {};
         coeffs["normal"] = normalCoeff;
@@ -752,6 +893,12 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
     return res
 };
 
+/**
+ * getTesukatoripokaAmount
+ * @param {number} amount
+ * @param {number} numOfRaces
+ * @return {number} amount
+ */
 module.exports.getTesukatoripokaAmount = function (amount, numOfRaces) {
     if (amount == 100 || amount == 120 || amount == 130) {
         var resultAmount = 10;
@@ -778,6 +925,13 @@ module.exports.getTesukatoripokaAmount = function (amount, numOfRaces) {
     return 0;
 };
 
+/**
+ * checkNumberOfRaces
+ * @param {array} chara
+ * @return {number} count total races
+ *
+ * NOTE: unique(x.race for x in chara if a.name and x.isConsideredInAverage)
+ */
 module.exports.checkNumberOfRaces = function (chara) {
     // check num of races
     var includedRaces = {
@@ -808,6 +962,13 @@ module.exports.checkNumberOfRaces = function (chara) {
     return races
 };
 
+/**
+ * checkNumberOfElements
+ * @param {array} totals
+ * @return {number} count total races
+ *
+ * NOTE: unique(x.element for x in totals if a.name and x.isConsideredInAverage)
+ */
 module.exports.checkNumberOfElements = function (totals) {
     // check num of elements
     var includedElements = {
@@ -837,6 +998,16 @@ module.exports.checkNumberOfElements = function (totals) {
     return elements
 };
 
+/**
+ * calcHaisuiValue
+ * @param {string} haisuiType
+ * @param {string} haisuiAmount one of {"S", "M", "L"}
+ * @param {number} haisuiSLv
+ * @param {number} haisuiRemainHP
+ *
+ * NOTE: no need japanese comment 小中大
+ * if (haisuiAmount == "L") {...} can explain the amount explicitly.
+ */
 module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, haisuiRemainHP) {
     var remainHP = haisuiRemainHP;
     var baseRate = 0.0;
@@ -968,6 +1139,12 @@ function* eachSupport(chara) {
     }
 }
 
+/**
+ * recalcCharaHaisui
+ * @param {object} chara
+ * @param {number} remainHP
+ * @return {number} charaHaisuiValue
+ */
 module.exports.recalcCharaHaisui = function (chara, remainHP) {
     var charaHaisuiValue = 1.0;
 
@@ -994,6 +1171,17 @@ module.exports.recalcCharaHaisui = function (chara, remainHP) {
     return charaHaisuiValue;
 };
 
+/**
+ * getTotalBuff
+ *
+ * Initialize total buff object data.
+ *
+ * @param {object} prof
+ * @return {object} totalBuff
+ *
+ * NOTE: save data compatibility
+ * "prof" object may have undefined field.
+ */
 module.exports.getTotalBuff = function (prof) {
     var totalBuff = {
         master: 0.0,
@@ -1056,12 +1244,33 @@ module.exports.getTotalBuff = function (prof) {
     return totalBuff
 };
 
+/**
+ * maskInvalidSkillLevel
+ * @param {number} slv
+ * @param {string} stype UNUSED
+ * @param {number} amount
+ * @return {number} slv valid between 1..20
+ */
 function maskInvalidSkillLevel(slv, stype, amount) {
     if (slv < 1) return 1;
     if (slv > 20) return 20;
     return slv;
 }
 
+/**
+ * addSkilldataToTotals
+ * @param {array} totals
+ * @param {array} comb
+ * @param {array} arml armList?
+ * @param {object} buff
+ * @return {void}
+ *
+ * This function does not return value.
+ * test the side effect to totals.
+ * comb, arml, buff are consts.
+ *
+ * XXX: a lot totals[key]
+ */
 module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
     // Check whether there is a cosmos weapon
     var cosmosType = '';
@@ -1607,6 +1816,11 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
     }
 };
 
+/**
+ * calcBaseATK
+ * @param {number} rank
+ * @return {number} attack
+ */
 module.exports.calcBaseATK = function (rank) {
     if (rank > 190) return 6650 + (rank - 190) * 5;
     if (rank > 175) return 6500 + (rank - 175) * 10;
@@ -1617,6 +1831,11 @@ module.exports.calcBaseATK = function (rank) {
     return 1000;
 };
 
+/**
+ * calcBaseHP
+ * @param {number} rank
+ * @return {number} hp
+ */
 module.exports.calcBaseHP = function (rank) {
     if (rank > 190) return 1730 + (rank - 190) * 1;
     if (rank > 175) return 1700 + (rank - 175) * 2;
@@ -1627,6 +1846,13 @@ module.exports.calcBaseHP = function (rank) {
     return 600;
 };
 
+/**
+ * getCharaLB
+ * @param {object} chara
+ * @return {object} LB
+ *
+ * XXX: obsolated and duplicate?
+ */
 function getCharaLB(chara) {
     var LB = {
         "ATK": 0,
@@ -1656,7 +1882,12 @@ function getCharaLB(chara) {
     return LB;
 }
 
-function getLBCriticalArray(charaLB) {
+/**
+* getCharaLB
+* @param {object} chara
+* @return {object} LB
+ */
+function getCharaLB(charaLB) {
     // LB Critical support
     var LBCriticalKeys = ["Critical1", "Critical2", "Critical3", "Critical4"];
     var criticalArray = [];
@@ -1674,6 +1905,13 @@ function getLBCriticalArray(charaLB) {
     return criticalArray;
 }
 
+/**
+ * getInitialTotals
+ * @param {object} prof
+ * @param {object} chara
+ * @param {object} summon
+ * @return {array} totals
+ */
 module.exports.getInitialTotals = function (prof, chara, summon) {
     var baseAttack = module.exports.calcBaseATK(parseInt(prof.rank));
     var baseHP = module.exports.calcBaseHP(parseInt(prof.rank));
@@ -2028,6 +2266,80 @@ module.exports.getInitialTotals = function (prof, chara, summon) {
     return totals
 };
 
+/**
+ * initializeTotals
+ * @param {array} totals array of object that store calculation data.
+ *
+ * | name | value |
+ * |-----|------:|
+ * | armAttack | 0 |
+ * | armHP | 0 |
+ * | HPdebuff | 0 |
+ * | magna | 0 |
+ * | magnaSoka | 0 |
+ * | magnaHaisui | 0 |
+ * | magnaKonshin | 0 |
+ * | normal | 0 |
+ * | Soka | 0 |
+ * | normalOther | 0 |
+ * | normalHaisui | 0 |
+ * | normalOtherHaisui | 0 |
+ * | normalKonshin | 0 |
+ * | normalOtherKonshin | 0 |
+ * | unknown | 0 |
+ * | ex | 0 |
+ * | exHaisui | 0 |
+ * | sensei | 0 |
+ * | akashaSensei | 0 |
+ * | bahaAT | 0 |
+ * | bahaHP | 0 |
+ * | bahaDA | 0 |
+ * | bahaTA | 0 |
+ * | magnaHP | 0 |
+ * | normalHP | 0 |
+ * | unknownHP | 0 |
+ * | exHP | 0 |
+ * | normalNite | 0 |
+ * | magnaNite | 0 |
+ * | normalSante | 0 |
+ * | normalLesserSante | 0 |
+ * | magnaSante | 0 |
+ * | magnaLesserSante | 0 |
+ * | exNite | 0 |
+ * | normalCritical | array |
+ * | normalOtherCritical | array |
+ * | magnaCritical | 0 |
+ * | cosmosBL | 0 |
+ * | cosmosAT | 0 |
+ * | omegaNormal | 0 |
+ * | omegaNormalHP | 0 |
+ * | akashaATK | 0 |
+ * | akashaHP | 0 |
+ * | opusnormalElement | 0 |
+ * | opusmagnaElement | 0 |
+ * | normalOtherNite | 0 |
+ * | normalOtherSante | 0 |
+ * | normalOtherLesserSante | 0 |
+ * | ougiDamage | 0 |
+ * | normalOugiDamage | 0 |
+ * | magnaOugiDamage | 0 |
+ * | chainDamage | 0 |
+ * | normalDamageLimit | 0 |
+ * | ougiDamageLimit | 0 |
+ * | normalChainDamage | 0 |
+ * | chainDamageLimit | 0 |
+ * | magnaOugiDamageLimit | 0 |
+ * | normalOugiDamageLimit | 0 |
+ * | exceedOugiDamageLimit | 0 |
+ * | omegaOugiDamageLimit | 0 |
+ * | normalChainDamageLimit | 0 |
+ * | additionalDamage | 0 |
+ * | ougiDebuff | 0 |
+ * | DAbuff | 0 |
+ * | TAbuff | 0 |
+ * | debuffResistance | 0 |
+ * | tenshiDamageUP | 0 |
+ */
 module.exports.initializeTotals = function (totals) {
     // Initialize values that change according to weapon organization
     for (var key in totals) {
@@ -2101,6 +2413,16 @@ module.exports.initializeTotals = function (totals) {
     }
 };
 
+/**
+ * calcOneCombination
+ * @param {array} comb combinations
+ * @param {object} summon
+ * @param {object} prof Profile object
+ * @param {array} arml armList
+ * @param {array} totals
+ * @param {object} buff
+ * @return {array} result
+ */
 module.exports.calcOneCombination = function (comb, summon, prof, arml, totals, buff) {
     module.exports.addSkilldataToTotals(totals, comb, arml, buff);
     var result = [];
@@ -2112,7 +2434,16 @@ module.exports.calcOneCombination = function (comb, summon, prof, arml, totals, 
     return result
 };
 
-// Overwrite the content of totals with what reflects charap's support
+/**
+ * treatSupportAbility
+ *
+ * Applies support abilities each characters.
+ *
+ * @param {array} totals
+ * @param {object} chara
+ *
+ * Overwrite the content of totals with what reflects charap's support
+ */
 module.exports.treatSupportAbility = function (totals, chara) {
     for (var key in totals) {
         for (let support of eachSupport(totals[key])) {
@@ -2260,6 +2591,20 @@ module.exports.treatSupportAbility = function (totals, chara) {
     }
 };
 
+/**
+ * generateHaisuiData
+ *
+ * @param {object} res
+ * @param {array} arml
+ * @param {object} summon
+ * @param {object} prof
+ * @param {object} chara
+ * @param {array} storedCombinations
+ * @param {array} storedNames
+ * @param {number} displayRealHP
+ * @param {string} locale
+ * @return {object} data
+ */
 module.exports.generateHaisuiData = function (res, arml, summon, prof, chara, storedCombinations, storedNames, displayRealHP, locale) {
     var data = {};
 
@@ -2607,6 +2952,20 @@ module.exports.generateHaisuiData = function (res, arml, summon, prof, chara, st
     return data
 };
 
+/**
+ * generateSimulationData
+ * @param {object} res
+ * @param {object} turnBuff
+ * @param {array} arml
+ * @param {object} summon
+ * @param {object} prof
+ * @param {object} buff
+ * @param {object} chara
+ * @param {array} storedCombinations
+ * @param {array} storedNames
+ * @param {string} locale
+ * @return {object} data
+ */
 module.exports.generateSimulationData = function (res, turnBuff, arml, summon, prof, buff, chara, storedCombinations, storedNames, locale) {
     var data = {};
     var minMaxArr = {
