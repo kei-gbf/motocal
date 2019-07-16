@@ -5,19 +5,11 @@ const intl = require('./translate');
 const {skilltypes, skillAmounts} = require('./global_const');
 
 
-// XXX: Patch, there was no boukun amount key.
-// XXX: This code break original "skilltypes", do not impoprt this module in main.
-//      the side effect is only within storybook.
-// TODO: deepCopy skilltypes to avoid the side effects.
-
-skilltypes["normalBoukunL"].type = "normal"; // XXX
-skilltypes["normalBoukunLLL"].type = "normal"; // XXX
-
-
 const SKILL_SECTIONS = [
     [
         "normalS", "normalM", "normalL", "normalLL", "normalLLM",
-        "normalBoukunL", "normalBoukunLLL",
+        {key: "normalBoukunL", type: "normal"},
+        {key: "normalBoukunLLL", type: "normal"},
         "normalHPS", "normalHPM", "normalHPL"
     ],
     [
@@ -27,9 +19,15 @@ const SKILL_SECTIONS = [
     [
         "strengthS", "strengthM", "strengthL", "strengthLL"
     ],
+    [
+        // TODO: add name for composite skill
+        {types: [
+            {key: "bahaFUAT", name: "bahaFU AT", type: "bahaFUATHP", amount: "AT"},
+            {key: "bahaFUHP", name: "bahaFU HP", type: "bahaFUATHP", amount: "HP"},
+        ]}
+    ]
 
     // TODO: add more skill types
-    // XXX: not support composite skill.
 ];
 
 const headerStyle = {
@@ -64,10 +62,24 @@ function SkillAmountTable(props) {
         }
     }
 
-    function tableRow(key, item) {
+    function *eachSection(section) {
+        for (const entry of section) {
+            if (typeof entry === "string") {
+                yield Object.assign({}, type[entry], {key:entry});
+            }
+            else if (entry.type) {
+                yield Object.assign({}, type[entry.key], entry);
+            }
+            else if (entry.types) {
+                yield *entry.types;
+            }
+        }
+    }
+
+    function tableRow({key, name, type, amount}) {
         return <tr key={key}>
-                <th key="skill-name">{intl.translate(item.name, locale)}</th>
-                {Array.from(withPrev(data[item.type][item.amount])).map(([prev, val]) =>
+                <th key="skill-name">{intl.translate(name, locale) || name}</th>
+                {Array.from(withPrev(data[type][amount])).map(([prev, val]) =>
                     <td key={val} {...(prev === val ? {style: invalidStyle} : {})}>
                          {val}
                     </td>)
@@ -84,7 +96,7 @@ function SkillAmountTable(props) {
             </tr>
         </thead>
         <tbody>
-            {section.map(key => tableRow(key, type[key]))}
+            {Array.from(eachSection(section)).map(tableRow)}
         </tbody>
         </table>
     );
