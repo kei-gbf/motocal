@@ -18,6 +18,7 @@ import { Arm } from '../armlist';
 import { Result } from '../result';
 import Notice from '../notice';
 import { CriticalBuffList } from '../components';
+import SkillAmountTable from '../skill_table';
 
 
 var localeSelector = (groupId) => select('locale', ['ja', 'en', 'zh'], 'ja', groupId);
@@ -36,6 +37,11 @@ storiesOf('How To', module)
     .add('Nite(DA)', () => <NiteHowTo />)
     .add('HP Chart', () => <HPChartHowTo show="true" />)
     .add('Simulator', () => <SimulatorHowTo />);
+
+storiesOf('Data table', module)
+    .addDecorator(withKnobs)
+    .add('Skill amount table', () =>
+        <SkillAmountTable locale={localeSelector('skill-amount-locale')} />);
 
 storiesOf('Components', module)
     .addDecorator(centered)
