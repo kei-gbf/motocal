@@ -1,4 +1,8 @@
-const {_generateCharaFilterFunc} = require("./template.js");
+
+const {
+    _generateCharaFilterFunc,
+    _generateArmFilterFunc
+} = require("./template.js");
 
 describe("_generateCharaFilterFunc", () => {
 
@@ -59,5 +63,60 @@ describe("_generateCharaFilterFunc", () => {
     test("filter by favorite weapon", () => {
         const result = search({filterFav: "sword"});
         expect(result.length).toBe(2);
+    });
+});
+
+
+describe("_generateArmFilterFunc", () => {
+
+    const defaultState = {
+        filterText: "",
+        filterElement: "all",
+        filterArmType: "all",
+        filterSeries: "all",
+    };
+
+    // generate arm entry data for this test.
+    const Arm = (name, element, series, type) => ({
+        ja: name, en: name, zh: name, element, series, type});
+
+    const armData = {
+        "A": Arm("A", "dark", "vintage", "sword"),
+        "B": Arm("B", "light", "grand", "sword"),
+        "C": Arm("C", "dark", "vintage", "sword"),
+        "D": Arm("D", "dark", "vintage", "sword"),
+        "E": Arm("E", "all", "grand", "sword"),
+    };
+
+    test("filter arm by text", () => {
+        const state = Object.assign({}, defaultState, {filterText: "A"});
+        const func = _generateArmFilterFunc(state);
+        const result = Array.from(Object.entries(armData).filter(func));
+
+        expect(result.length).toBe(1);
+    });
+
+    test("filter arm by dark element", () => {
+        const state = Object.assign({}, defaultState, {filterElement: "dark"});
+        const func = _generateArmFilterFunc(state);
+        const result = Array.from(Object.entries(armData).filter(func));
+
+        expect(result.length).toBe(4); // 3 dark + 1 all
+    });
+
+    test("filter arm by series", () => {
+        const state = Object.assign({}, defaultState, {filterSeries: "grand"});
+        const func = _generateArmFilterFunc(state);
+        const result = Array.from(Object.entries(armData).filter(func));
+
+        expect(result.length).toBe(2);
+    });
+
+    test("filter arm by type", () => {
+        const state = Object.assign({}, defaultState, {filterArmType: "sword"});
+        const func = _generateArmFilterFunc(state);
+        const result = Array.from(Object.entries(armData).filter(func));
+
+        expect(result.length).toBe(5);
     });
 });

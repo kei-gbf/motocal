@@ -1204,7 +1204,31 @@ var elementTypes = {
 };
 
 var series = {
+    "vintage": "ヴィンテージシリーズ",
     "epic": "エピックウェポン",
+    "vyrmament": "オイラは",
+    "oldenPrimal": "オールド・プライマルシリーズ",
+    "ultima": "オメガウェポン",
+    "cosmos": "コスモスシリーズ",
+    "superlative": "スペリオルシリーズ",
+    "sephira": "セフィリアン・オールドウェポン",
+    "seraphic": "セラフィックウェポン",
+    "bahamut": "バハムートウェポン",
+    "primal": "プライマルシリーズ",
+    "omega": "マグナシリーズ",
+    "grand": "リミテッドシリーズ",
+    "regalia": "レガリアシリーズ",
+    "rose": "ローズシリーズ",
+    "relic": "依代",
+    "ccw": "英雄武器",
+    "rusted": "朽ち果てた武器",
+    "beast": "四象武器",
+    "revenant": "天星器",
+    "replica": "複製品",
+    "xeno": "六道武器",
+    "hollowsky": "虚ろなる神器",
+    "darkOpus": "終末の神器",
+    "upgraders": "強化素材",
     "none": "無",
 };
 
@@ -1233,7 +1257,8 @@ const filterRaces = Object.assign({"all": "全種族"}, raceTypes);
 const filterSexes = Object.assign({"all": "全性別"}, sexTypes);
 const filterFavs = Object.assign({"all": "全得意武器"}, armTypes);
 const filterTypes = Object.assign({"all": "全タイプ"}, jobTypes);
-
+const filterSeries = Object.assign({"all": "全シリーズ"}, series);
+const filterArmTypes = Object.assign({"all": "全武器種"}, armTypes);
 
 // strong and weak elements for each element
 module.exports.elementRelation = {
@@ -2863,6 +2888,7 @@ module.exports.selector.zh.enemyElements = Object.keys(enemyElementTypes).map(fu
     return <option value={opt} key={opt}>{intl.translate(enemyElementTypes[opt], "zh")}</option>;
 });
 
+
 function _generateFilterOptions(locale, types) {
     return Object.keys(types).map((opt) =>
         <option value={opt} key={opt}>{intl.translate(types[opt], locale)}</option>);
@@ -2879,6 +2905,8 @@ _setupFilterOptions(module.exports.selector, "filterRaces", filterRaces);
 _setupFilterOptions(module.exports.selector, "filterFavs", filterFavs);
 _setupFilterOptions(module.exports.selector, "filterTypes", filterTypes);
 _setupFilterOptions(module.exports.selector, "filterElements", filterElementTypes);
+_setupFilterOptions(module.exports.selector, "filterSeries", filterSeries);
+_setupFilterOptions(module.exports.selector, "filterArmTypes", filterArmTypes);
 
 
 module.exports.selector.ja.summons = Object.keys(summonTypes).map(function (opt) {

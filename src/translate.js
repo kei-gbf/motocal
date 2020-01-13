@@ -226,6 +226,16 @@ var multiLangData = {
         "ja": "全得意武器",
         "zh": "All arm type",
     },
+    "全シリーズ": {
+        "en": "All series",
+        "ja": "全シリーズ",
+        "zh": "All series",
+    },
+    "全武器種": {
+        "en": "All arm types",
+        "ja": "全武器種",
+        "zh": "All arm types",
+    },
     "全属性": {
         "en": "All",
         "ja": "全属性",
@@ -2151,10 +2161,130 @@ var multiLangData = {
         "zh": "男/女",
     },
     // Series
+    "ヴィンテージシリーズ": {
+        "en": "Vintage Weapons",
+        "ja": "ヴィンテージシリーズ",
+        "zh": "ヴィンテージシリーズ",
+    },
     "エピックウェポン": {
-        "en": "Epic Weapon",
+        "en": "Epic Weapons",
         "ja": "エピックウェポン",
         "zh": "エピックウェポン",
+    },
+    "オイラは": {
+        "en": "Vyrmament",
+        "ja": "オイラは",
+        "zh": "オイラは",
+    },
+    "オールド・プライマルシリーズ": {
+        "en": "Olden Primal Weapons",
+        "ja": "オールド・プライマルシリーズ",
+        "zh": "オールド・プライマルシリーズ",
+    },
+    "オメガウェポン": {
+        "en": "Ultima Weapons",
+        "ja": "オメガウェポン",
+        "zh": "オメガウェポン",
+    },
+    "コスモスシリーズ": {
+        "en": "Cosmos Weapons",
+        "ja": "コスモスシリーズ",
+        "zh": "コスモスシリーズ",
+    },
+    "スペリオルシリーズ": {
+        "en": "Superlative Weapons",
+        "ja": "スペリオルシリーズ",
+        "zh": "スペリオルシリーズ",
+    },
+    "セフィリアン・オールドウェポン": {
+        "en": "Sephira Weapons",
+        "ja": "セフィリアン・オールドウェポン",
+        "zh": "セフィリアン・オールドウェポン",
+    },
+    "セラフィックウェポン": {
+        "en": "Seraphic Weapons",
+        "ja": "セラフィックウェポン",
+        "zh": "セラフィックウェポン",
+    },
+    "バハムートウェポン": {
+        "en": "Bahamut Weapons",
+        "ja": "バハムートウェポン",
+        "zh": "バハムートウェポン",
+    },
+    "プライマルシリーズ": {
+        "en": "Primal Weapons",
+        "ja": "プライマルシリーズ",
+        "zh": "プライマルシリーズ",
+    },
+    "マグナシリーズ": {
+        "en": "Omega Weapons",
+        "ja": "マグナシリーズ",
+        "zh": "マグナシリーズ",
+    },
+    "リミテッドシリーズ": {
+        "en": "Grand Weapons",
+        "ja": "リミテッドシリーズ",
+        "zh": "リミテッドシリーズ",
+    },
+    "レガリアシリーズ": {
+        "en": "Regalia Weapons",
+        "ja": "レガリアシリーズ",
+        "zh": "レガリアシリーズ",
+    },
+    "ローズシリーズ": {
+        "en": "Rose Crystal Weapons",
+        "ja": "ローズシリーズ",
+        "zh": "ローズシリーズ",
+    },
+    "依代": {
+        "en": "Relics",
+        "ja": "依代",
+        "zh": "依代",
+    },
+    "英雄武器": {
+        "en": "Class Champion Weapons",
+        "ja": "英雄武器",
+        "zh": "英雄武器",
+    },
+    "朽ち果てた武器": {
+        "en": "Rusted Weapons",
+        "ja": "朽ち果てた武器",
+        "zh": "朽ち果てた武器",
+    },
+    "四象武器": {
+        "en": "Beast Weapons",
+        "ja": "四象武器",
+        "zh": "四象武器",
+    },
+    "天星器": {
+        "en": "Revenant Weapons",
+        "ja": "天星器",
+        "zh": "天星器",
+    },
+    "複製品": {
+        "en": "Replicas Weapons",
+        "ja": "複製品",
+        "zh": "複製品",
+    },
+    "六道武器": {
+        "en": "Xeno Weapons",
+        "ja": "六道武器",
+        "zh": "六道武器",
+    },
+    "虚ろなる神器": {
+        "en": "Hollowsky Weapons",
+        "ja": "虚ろなる神器",
+        "zh": "虚ろなる神器",
+    },    
+    "終末の神器": {
+        "en": "Dark Opus Weapons",
+        "ja": "終末の神器",
+        "zh": "終末の神器",
+    },
+    "強化素材": {
+        "en": "Upgraders Weapons",
+        "ja": "強化素材",
+        "zh": "強化素材",
     },
 
     //support abilities

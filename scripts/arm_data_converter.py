@@ -1112,7 +1112,31 @@ armtypelist[u"楽器"] = "music"
 armtypelist[u"刀"] = "katana"
 
 SERIES = {
+    u"ヴィンテージシリーズ": "vintage",
     u"エピックウェポン": "epic",
+    u"オイラは": "vyrmament",
+    u"オールド・プライマルシリーズ": "oldenPrimal",
+    u"オメガウェポン": "ultima",
+    u"コスモスシリーズ": "cosmos",
+    u"スペリオルシリーズ": "superlative",
+    u"セフィリアン・オールドウェポン": "sephira",
+    u"セラフィックウェポン": "seraphic",
+    u"バハムートウェポン": "bahamut",
+    u"プライマルシリーズ": "primal",
+    u"マグナシリーズ": "omega",
+    u"リミテッドシリーズ": "grand",
+    u"レガリアシリーズ": "regalia",
+    u"ローズシリーズ": "rose",
+    u"依代": "relic",
+    u"英雄武器": "ccw",
+    u"朽ち果てた武器": "rusted",
+    u"四象武器": "beast",
+    u"天星器": "revenant",
+    u"複製品": "replica",
+    u"六道武器": "xeno",
+    u"虚ろなる神器": "hollowsky",
+    u"終末の神器": "darkOpus",
+    u"強化素材": "upgrader",
 }
 
 ########################################################################################################################
