@@ -2130,7 +2130,6 @@ var multiLangData = {
         "ja": "種族不明",
         "zh": "种族不明",
     },
-
     "男": {
         "en": "Male",
         "ja": "男",
@@ -2922,6 +2921,11 @@ var multiLangData = {
         "ja": "通常英傑(大)",
         "zh": "通常英傑(大)",
     },
+    "通常恩寵(小)": {
+        "en": "Normal Grace (S)",
+        "ja": "通常恩寵(小)",
+        "zh": "通常恩寵(小)",
+    },
     "通常恩寵(中)": {
         "en": "Normal Grace (M)",
         "ja": "通常恩寵(中)",
@@ -3267,6 +3271,11 @@ var multiLangData = {
         "ja": "通常技巧(大)",
         "zh": "通常技巧(大)",
     },
+    "通常技巧II": {
+        "en": "Normal Verity II",
+        "ja": "通常技巧II",
+        "zh": "通常技巧II",
+    },
     "マグナ技巧(小)": {
         "en": "Magna Verity (S)",
         "ja": "マグナ技巧(小)",
@@ -3291,6 +3300,16 @@ var multiLangData = {
         "en": "Normal Celere (M)",
         "ja": "通常刹那(中)",
         "zh": "通常刹那(中)",
+    },
+    "通常刹那(大)": {
+        "en": "Normal Celere (L)",
+        "ja": "通常刹那(大)",
+        "zh": "通常刹那(大)",
+    },
+    "通常刹那II": {
+        "en": "Normal Celere II",
+        "ja": "通常刹那II",
+        "zh": "通常刹那II",
     },
     "マグナ刹那(小)": {
         "en": "Magna Celere (S)",
