@@ -2795,7 +2795,7 @@ module.exports.treatSupportAbility = function (totals, chara, comb, arml, buff) 
                 case "emnity_all_SL10":
                     // Refer to HP of Zahlhamelina/Yuisis (Fire)
                     var charaHaisuiValue = module.exports.calcHaisuiValue("charaHaisui", "L", 10, totals[key]["remainHP"]);
-                    for (let [name, chara] of support.range(totals, key)) {
+                    for (let [name, chara] of range[support.range](totals, key)) {
                         chara["charaHaisui"] = Math.max(chara["charaHaisui"], charaHaisuiValue);
                     }
                     continue;
