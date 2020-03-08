@@ -913,7 +913,7 @@ skillnamelist["strengthLLL"] = {
     u"氷霜の支配者": "water",
     u"花樹の支配者": "earth",
     u"嵐翠の支配者": "wind",
-    u"白銀の支配者": "light",
+    u"白輝の支配者": "light",
     u"禍滅の支配者": "dark"
 }
 
