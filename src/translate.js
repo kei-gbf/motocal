@@ -2161,6 +2161,11 @@ var multiLangData = {
         "zh": "男/女",
     },
     // Series
+    "アストラルウェポン": {
+        "en": "Astral Weapons",
+        "ja": "アストラルウェポン",
+        "zh": "アストラルウェポン",
+    },
     "ヴィンテージシリーズ": {
         "en": "Vintage Weapons",
         "ja": "ヴィンテージシリーズ",

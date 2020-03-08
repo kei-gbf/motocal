@@ -1205,6 +1205,7 @@ var elementTypes = {
 };
 
 var series = {
+    "astral": "アストラルウェポン",
     "vintage": "ヴィンテージシリーズ",
     "epic": "エピックウェポン",
     "vyrmament": "オイラは",

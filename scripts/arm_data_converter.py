@@ -1127,6 +1127,7 @@ armtypelist[u"楽器"] = "music"
 armtypelist[u"刀"] = "katana"
 
 SERIES = {
+    u"アストラルウェポン": "astral",
     u"ヴィンテージシリーズ": "vintage",
     u"エピックウェポン": "epic",
     u"オイラは": "vyrmament",
