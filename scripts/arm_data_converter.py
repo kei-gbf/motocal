@@ -267,8 +267,12 @@ skillnamelist["normalKatsumiM"] = {
 }
 
 skillnamelist["normalElementM"] = {
+    u"業火の進境": "fire",
     u"渦潮の進境": "water",
-    u"雷電の進境": "light"
+    u"大地の進境": "earth",
+    u"竜巻の進境": "wind",
+    u"雷電の進境": "light",
+    u"奈落の進境": "dark"
 }
 
 skillnamelist["kaijinnoyogen"] = {
@@ -881,6 +885,7 @@ skillnamelist["strengthL"] = {
     u"暴風の残滓": "wind",
     u"ガチャピンの攻刃": "wind",
     u"資材切断の攻刃": "dark",
+    u"六波羅蜜の攻刃": "dark",
 }
 
 skillnamelist["exATKandHPM"] = {
@@ -1308,7 +1313,7 @@ def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url
         if name in translation:
             newdict["en"] = translation[name]
         else:
-            print(name)
+            print("missing translate", name)
             newdict["en"] = name
 
         json_data[name] = newdict
